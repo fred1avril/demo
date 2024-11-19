@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Test | {{ parent() }}
+{% endblock %}
+
+{% block body%}
+    <h1>test</h1>
+    <p>{{ "+1 month"|date("d-m-Y") }}</p>
+    <h2>{{ serie.title }} {{ autrevar }}</h2>
+    {# ceci est un commentaire twig #}
+    {% set nom ="Fred" %}
+    <p>{{ nom }} - {{ nom|length }}</p>
+    {% set colors =["blue","red","yellow","green"] %}
+    <p>{{ colors|length }} colors</p>
+    <p>{{ colors| join("--") }}</p>
+    {% for col in colors %}
+    <div style="background-color: {{ col }};padding: 20px;">{{ col }}</div>
+    {% endfor %}
+    {% set book ={
+        title :'symfony',
+        year : 2028,
+        author : 'johnny'
+    } %}
+    {% for key,val in book %}
+        <dl>
+            <dt>{{ key }}</dt>
+            <dd>{{ val }}</dd>
+        </dl>
+    {% endfor %}
+{% endblock %}
